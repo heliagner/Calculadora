@@ -1,12 +1,13 @@
-const prompt = require("prompt-sync")();
+const prompt = require("prompt-sync")({sigint: true});
 
 let resultado;
 
 function verificarNumero(numero1, numero2){
-    if (isNaN(numero1) || isNaN(numero2));
+    if (isNaN(numero1) || isNaN(numero2)){
         console.log("Digite um número válido");
         process.exit();
-}
+    };
+};
 
 function adicao(numero1, numero2){
     return numero1 + numero2
@@ -39,9 +40,10 @@ let numero1, numero2, operacao;
 console.log(` 
                 ||| CALCULADORA SIMPLES |||
             `)
-numero1 = verificarNumero(prompt(`1. Digite o primeiro número que deseja realizar a operação:`));
-numero2 = verificarNumero(prompt(`2. Digite o segundo número que deseja realizar a operação: `));
+numero1 = Number(prompt(`1. Digite o primeiro número que deseja realizar a operação:`));
+numero2 = Number(prompt(`2. Digite o segundo número que deseja realizar a operação: `));
 
+verificarNumero(numero1, numero2);
 
 console.log(`
                 Agora digite qual operação deseja realizar:
